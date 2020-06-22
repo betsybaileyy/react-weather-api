@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Temperature from './Temperature';
 import './App.css';
 
 
@@ -19,7 +20,7 @@ class Weather extends Component {
     // Get the zip from the input
     const zip = this.state.inputValue
     // Form an API request URL with the apikey and zip
-    const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${'75e61380b673bbfebc3779698520ce1b'}`
+    const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apikey}`
     // Get data from the API with fetch
     fetch(url).then(res => {
       // Handle the response stream as JSON
@@ -66,7 +67,11 @@ class Weather extends Component {
         <div>Pressure: {pressure}</div>
         <div>Humidity: {humidity}</div>
         <div>Temp Min: {temp_min} Max:{temp_max}</div>
+        <div>
+        {/* <Temperature /> */}
+        </div>
       </div>
+
     )
   }
 
@@ -103,3 +108,5 @@ class Weather extends Component {
 }
 
 export default Weather;
+
+
